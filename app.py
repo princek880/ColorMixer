@@ -42,16 +42,18 @@ if mode == "Upload Images":
 else:  # Enter RGB Values
     st.header("Enter Base RGB Values (up to 5, min 3)")
     for i in range(5):
-        r = st.number_input(f"Base Color {i+1} - R", min_value=0, max_value=255, value=0, key=f"r{i}")
-        g = st.number_input(f"Base Color {i+1} - G", min_value=0, max_value=255, value=0, key=f"g{i}")
-        b = st.number_input(f"Base Color {i+1} - B", min_value=0, max_value=255, value=0, key=f"b{i}")
+        cols = st.columns(3)
+        r = cols[0].number_input(f"R{i+1}", min_value=0, max_value=255, value=0, key=f"r{i}")
+        g = cols[1].number_input(f"G{i+1}", min_value=0, max_value=255, value=0, key=f"g{i}")
+        b = cols[2].number_input(f"B{i+1}", min_value=0, max_value=255, value=0, key=f"b{i}")
         if (r,g,b) != (0,0,0):  # avoid dummy all-zero entries
             base_rgbs.append([r,g,b])
 
     st.header("Enter Target RGB Value")
-    tr = st.number_input("Target - R", min_value=0, max_value=255, value=0, key="tr")
-    tg = st.number_input("Target - G", min_value=0, max_value=255, value=0, key="tg")
-    tb = st.number_input("Target - B", min_value=0, max_value=255, value=0, key="tb")
+    cols_t = st.columns(3)
+    tr = cols_t[0].number_input("Target R", min_value=0, max_value=255, value=0, key="tr")
+    tg = cols_t[1].number_input("Target G", min_value=0, max_value=255, value=0, key="tg")
+    tb = cols_t[2].number_input("Target B", min_value=0, max_value=255, value=0, key="tb")
     target_rgb = [tr, tg, tb]
 
 # --- Compute proportions ---
