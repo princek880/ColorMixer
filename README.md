@@ -16,7 +16,7 @@ It computes the non-negative proportions of the three base colors needed to appr
 Clone this repository and install dependencies:
 
 ```bash
-git clone https://github.com/<your-username>/color-mixer-app.git
+git clone https://github.com/princek880/color-mixer-app.git
 cd color-mixer-app
 
 # Using conda
